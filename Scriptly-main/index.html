@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Content Pipeline</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<main class="wrap">
+
+  <header class="head">
+    <h1>Content Pipeline</h1>
+    <p>Three agents. One goal. Research, write, edit — automatically.</p>
+  </header>
+
+  <section class="panel">
+    <div class="field">
+      <label for="topic">Topic</label>
+      <input type="text" id="topic" placeholder="Benefits of remote work for small teams" autocomplete="off">
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="contentType">Type</label>
+        <select id="contentType">
+          <option>Blog Post</option>
+          <option>Article</option>
+          <option>Social Media Post</option>
+          <option>Product Description</option>
+          <option>Email Newsletter</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="tone">Tone</label>
+        <select id="tone">
+          <option>Professional</option>
+          <option>Casual</option>
+          <option>Persuasive</option>
+          <option>Friendly</option>
+          <option>Formal</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="length">Length</label>
+        <select id="length">
+          <option>Short (~150 words)</option>
+          <option selected>Medium (~400 words)</option>
+          <option>Long (~800 words)</option>
+        </select>
+      </div>
+    </div>
+
+    <button id="generateBtn">Generate</button>
+    <p id="errorBox" class="error hidden"></p>
+  </section>
+
+  <section id="logPanel" class="log hidden">
+    <span class="eyebrow">Agent log</span>
+    <pre id="logContent"></pre>
+  </section>
+
+  <section id="resultsPanel" class="results hidden">
+
+    <article class="stage">
+      <span class="eyebrow">01 · Research Agent</span>
+      <pre id="researchOutput"></pre>
+    </article>
+
+    <article class="stage">
+      <span class="eyebrow">02 · Writer Agent</span>
+      <pre id="writerOutput"></pre>
+    </article>
+
+    <article class="stage stage--final">
+      <span class="eyebrow">03 · Editor Agent — Final</span>
+      <pre id="editorOutput"></pre>
+    </article>
+
+  </section>
+
+  <div id="loadingOverlay" class="loading hidden">
+    <div class="dot"></div>
+    <p id="loadingText">Working…</p>
+  </div>
+
+</main>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
